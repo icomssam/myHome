@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이컴쌤</title>
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bfe0fe',
+                            300: '#93cbfe',
+                            400: '#60b0fd',
+                            500: '#3b92f7',
+                            600: '#2575eb',
+                            deep: '#0f172a',
+                        },
+                        brand: {
+                            orange: '#fca130',
+                            orangeHover: '#e08e20'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #fafbfc;
+        }
+        .blur-nav {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px -10px rgba(147, 203, 254, 0.4);
+        }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.55) 50%, rgba(15, 23, 42, 0.4) 100%), 
+                              url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="text-slate-800 selection:bg-pastel-200">
+
+<!-- Navigation Bar -->
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 text-white bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+        <a href="#" class="text-lg font-bold tracking-tight flex items-center gap-2">
+            <span class="text-2xl font-light">∞</span>
+            <span class="tracking-widest text-sm font-semibold uppercase">ICOMSSAM</span>
+        </a>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="hidden md:flex items-center gap-10 text-xs font-semibold tracking-wider uppercase opacity-90">
+            <a href="#about" class="hover:text-pastel-200 transition-colors">소개</a>
+            <a href="#career" class="hover:text-pastel-200 transition-colors">진로</a>
+            <a href="#books" class="hover:text-pastel-200 transition-colors">독서</a>
+            <a href="/game" class="hover:text-pastel-200 transition-colors" target="_blank">게임</a>
+            <a href="/cheongna_school_meals.html" class="hover:text-pastel-200 transition-colors" target="_blank">급식</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+            <a href="mailto:your_email@example.com" class="text-xs border border-white/30 hover:bg-white hover:text-slate-900 px-5 py-2.5 rounded-full font-semibold transition-all duration-200 tracking-wide flex items-center gap-1.5">
+                문의하기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-slate-900 text-white hidden flex-col justify-center items-center gap-8 animate-in fade-in duration-300">
+    <button id="mobile-close" class="absolute top-6 right-6 p-2 text-white/80 hover:text-white">
+        <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <nav class="flex flex-col gap-6 text-2xl font-bold tracking-wider text-center">
+        <a href="#about" onclick="closeMobileMenu()" class="hover:text-pastel-300 transition-colors">소개</a>
+        <a href="#career" onclick="closeMobileMenu()" class="hover:text-pastel-300 transition-colors">진로</a>
+        <a href="#books" onclick="closeMobileMenu()" class="hover:text-pastel-300 transition-colors">독서</a>
+        <a href="/game" onclick="closeMobileMenu()" class="hover:text-pastel-300 transition-colors">게임</a>
+        <a href="/cheongna_school_meals.html" onclick="closeMobileMenu()" class="hover:text-pastel-300 transition-colors">급식</a>
+    </nav>
+</div>
+
+<main>
+    <!-- 소개 섹션 -->
+    <section id="about" class="hero-bg min-h-screen flex items-center relative text-white pt-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-20">
+            <div class="lg:col-span-8 space-y-8 max-w-2xl">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2]">
+                    배움을 디자인하고,<br>
+                    가치를 실현합니다.
+                </h1>
+                <p class="text-sm md:text-lg text-slate-200/90 leading-relaxed font-light">
+                    디자인과 기술의 조화를 추구하는 예비 디자이너이자 개발자입니다.
+                </p>
+                <a href="#career" class="inline-flex items-center gap-2 bg-[#fca130] hover:bg-[#e08e20] text-black font-bold text-sm px-6 py-4 rounded-full transition-all">
+                    기록 시작하기 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 진로 섹션 (예시 추가) -->
+    <section id="career" class="min-h-screen flex items-center bg-white justify-center">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold mb-4">진로 소개</h2>
+            <p class="text-slate-600">여기에 진로 관련 콘텐츠를 디자인해보세요.</p>
+        </div>
+    </section>
+
+    <!-- 독서 섹션 (예시 추가) -->
+    <section id="books" class="min-h-screen flex items-center bg-slate-50 justify-center">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold mb-4">독서 기록</h2>
+            <p class="text-slate-600">여기에 독서 관련 콘텐츠를 디자인해보세요.</p>
+        </div>
+    </section>
+</main>
+
+<script>
+    window.onload = function() {
+        lucide.createIcons();
+        const header = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', () => {
+            // 헤더 요소가 존재할 때만 classList 조작하여 에러 방지
+            if (!header) return; 
+            
+            if (window.scrollY > 80) {
+                header.classList.add('blur-nav', 'bg-white/85', 'text-slate-900', 'border-b', 'border-pastel-100/60');
+                header.classList.remove('text-white');
+            } else {
+                header.classList.remove('blur-nav', 'bg-white/85', 'text-slate-900', 'border-b', 'border-pastel-100/60');
+                header.classList.add('text-white');
+            }
+        });
+    }
+
+    function closeMobileMenu() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    document.getElementById('mobile-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.remove('hidden');
+    });
+
+    document.getElementById('mobile-close').addEventListener('click', closeMobileMenu);
+</script>
+</body>
+</html>
